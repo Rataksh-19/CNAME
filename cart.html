@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>السلة - سوبر نت</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">سوبر نت</div>
+  </header>
+
+  <nav id="sidebar">
+    <a href="index.html">🏠 الرئيسية</a>
+    <a href="contact.html">📞 تواصل معنا</a>
+    <a href="privacy.html">🔒 سياسة الخصوصية</a>
+    <a href="#" id="signupBtn">🧑‍💻 إنشاء حساب</a>
+    <a href="cart.html" id="cartLink" style="display:none;">🛒 السلة</a>
+  </nav>
+
+  <div class="container">
+    <h2>السلة الخاصة بك</h2>
+    <ul id="cartItems"></ul>
+    <h3 id="total"></h3>
+
+    <button id="clearCartBtn" style="margin-top: 20px; padding: 10px 20px; background-color: crimson; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      🗑️ مسح السلة
+    </button>
+
+    <div style="margin-top: 30px;">
+      <h4>طرق الدفع:</h4>
+      <p>💳 بنك الراجحي - رقم الحساب: <strong>SA0000000000000000000000</strong></p>
+      <p>بعد التحويل، يرجى التواصل عبر <a href="https://wa.me/966509460048" target="_blank">الواتساب</a>.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 سوبر نت. جميع الحقوق محفوظة.
+  </footer>
+
+  <!-- سكربت الجافاسكربت -->
+  <script src="script.js"></script>
+</body>
+</html>

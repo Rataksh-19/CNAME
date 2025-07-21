@@ -1,0 +1,131 @@
+/* الخط الأساسي */
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* رأس الصفحة */
+header {
+  background: linear-gradient(to left, #00d9ff, #006d7c);
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.store-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+}
+
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* زر القائمة (☰) */
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* القائمة الجانبية */
+nav#sidebar {
+  display: none; /* مخفية بشكل افتراضي */
+  flex-direction: column;
+  position: absolute;
+  top: 70px;  /* تحت الهيدر */
+  right: 20px; /* على اليمين */
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 999;
+  min-width: 180px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+nav#sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  font-weight: bold;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+nav#sidebar a:hover {
+  color: #00d9ff;
+}
+
+/* الحاوية */
+.container {
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* قسم المنتجات */
+.product {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product h2 {
+  margin: 0 0 10px 0;
+  color: #00d9ff;
+}
+
+/* زر الإضافة */
+button {
+  padding: 10px 20px;
+  background-color: #00d9ff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #009bbf;
+}
+
+/* الفوتر */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #101010;
+  color: #aaa;
+}

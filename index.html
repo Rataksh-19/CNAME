@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سوبر نت | بيع الحسابات</title>
+  <style>
+    /* نفس الـ CSS الذي أرسلته سابقًا */
+    body {
+      font-family: 'Cairo', sans-serif, Arial, sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(to left, #00d9ff, #006d7c);
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      position: relative;
+    }
+    .menu-toggle {
+      position: absolute;
+      right: 30px;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+      user-select: none;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      flex-grow: 1;
+    }
+    #userNameDisplay {
+      position: absolute;
+      left: 30px;
+      font-size: 18px;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: white;
+      user-select: none;
+    }
+    nav#sidebar {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      background: #1c1c1c;
+      padding: 50px 20px 20px 20px;
+      border-radius: 10px 0 0 10px;
+      z-index: 1500;
+      min-width: 200px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.7);
+    }
+    nav#sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 10px;
+      font-weight: bold;
+      font-size: 18px;
+      display: block;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    nav#sidebar a:hover {
+      background-color: #00d9ff;
+      color: black;
+    }
+    nav#sidebar.show {
+      display: flex;
+    }
+    .container {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    #productsSection {
+      display: none;
+    }
+    .product {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product h2 {
+      margin: 0 0 10px 0;
+      color: #00d9ff;
+    }
+    .product p {
+      margin: 0;
+      color: #bbb;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00d9ff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #009bbf;
+    }
+    #signupSection {
+      max-width: 400px;
+      margin: 60px auto;
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+    }
+    #signupSection h2 {
+      text-align: center;
+      color: #00d9ff;
+      margin-bottom: 20px;
+    }
+    #signupForm input[type="text"],
+    #signupForm input[type="email"],
+    #signupForm input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #333;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+      background: #0e0e0e;
+      color: #fff;
+      transition: border-color 0.3s ease;
+    }
+    #signupForm input[type="text"]:focus,
+    #signupForm input[type="email"]:focus,
+    #signupForm input[type="password"]:focus {
+      border-color: #00d9ff;
+      outline: none;
+    }
+    #signupForm button {
+      width: 100%;
+      padding: 14px;
+      background-color: #00d9ff;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+    }
+    #signupForm button:hover {
+      background-color: #009bbf;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+      min-height: 24px;
+      color: #00d9ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #101010;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="store-name"></div>
+    </div>
+    <div id="userNameDisplay"></div>
+  </header>
+
+
+  <nav id="sidebar">
+    <a href="index.html">🏠 الرئيسية</a>
+    <a href="contact.html">📞 تواصل معنا</a>
+    <a href="privacy.html">🔒 سياسة الخصوصية</a>
+    <a href="cart.html">🛒 السلة</a>
+  </nav>
+
+  <div class="container" id="mainContent">
+    <div id="signupSection">
+      <h2>إنشاء حساب جديد</h2>
+      <form id="signupForm">
+        <input type="text" id="username" placeholder="اسم المستخدم" required />
+        <input type="email" id="email" placeholder="البريد الإلكتروني" required />
+        <input type="password" id="password" placeholder="كلمة المرور (6 أحرف على الأقل)" required minlength="6" />
+        <button type="submit">إنشاء حساب</button>
+      </form>
+      <div id="message"></div>
+    </div>
+
+    <div id="productsSection">
+      <div class="product">
+        <div>
+          <h2>حساب Netflix</h2>
+          <p>السعر: 15 ريال</p>
+        </div>
+        <button onclick="addToCart('حساب Netflix', 15)">إضافة للسلة</button>
+      </div>
+      <div class="product">
+        <div>
+          <h2>حساب Crunchyroll</h2>
+          <p>السعر: 18 ريال</p>
+        </div>
+        <button onclick="addToCart('حساب Crunchyroll', 18)">إضافة للسلة</button>
+      </div>
+      <div class="product">
+        <div>
+          <h2>حساب Spotify</h2>
+          <p>السعر: 10 ريال</p>
+        </div>
+        <button onclick="addToCart('حساب Spotify', 10)">إضافة للسلة</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    جميع الحقوق محفوظة © 2025 سوبر نت
+  </footer>
+
+  <script>
+    const productsSection = document.getElementById('productsSection');
+    const signupSection = document.getElementById('signupSection');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const messageDiv = document.getElementById('message');
+    const form = document.getElementById('signupForm');
+    const sidebar = document.getElementById('sidebar');
+
+    // دالة لعرض صفحة المنتجات
+    function showHome() {
+      productsSection.style.display = 'block';
+      signupSection.style.display = 'none';
+      closeSidebar();
+    }
+
+    // دالة لعرض صفحة التسجيل
+    function showSignup() {
+      productsSection.style.display = 'none';
+      signupSection.style.display = 'block';
+      clearMessage();
+      form.reset();
+      closeSidebar();
+    }
+
+    // مسح رسالة الخطأ أو النجاح
+    function clearMessage() {
+      messageDiv.textContent = '';
+      messageDiv.style.color = '';
+    }
+
+    // دالة بداية تحميل الصفحة
+    function initPage() {
+      const savedUsername = localStorage.getItem('username');
+      if (savedUsername) {
+        userNameDisplay.textContent = `مرحباً، ${savedUsername}`;
+        showHome();
+      } else {
+        userNameDisplay.textContent = '';
+        showSignup();
+      }
+    }
+
+    // استدعاء دالة البداية عند تحميل الصفحة
+    initPage();
+
+    // التعامل مع ارسال الفورم
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      clearMessage();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (username.length < 3) {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'اسم المستخدم يجب أن يكون 3 أحرف على الأقل.';
+        return;
+      }
+      if (password.length < 6) {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل.';
+        return;
+      }
+
+      // حفظ اسم المستخدم في localStorage
+      localStorage.setItem('username', username);
+
+      // عرض رسالة نجاح وترحيب
+      messageDiv.style.color = 'green';
+      messageDiv.textContent = `تم إنشاء الحساب بنجاح! مرحباً، ${username}`;
+      userNameDisplay.textContent = `مرحباً، ${username}`;
+
+      // عرض صفحة المنتجات بدون تأخير أو إعادة تحميل
+      showHome();
+
+      // إعادة تعيين الفورم
+      form.reset();
+    });
+
+    // إضافة منتج للسلة
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name: name, price: price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`تم إضافة ${name} إلى السلة بسعر ${price} ريال.`);
+    }
+
+    // قائمة التنقل الجانبية
+    function toggleMenu() {
+      sidebar.classList.toggle('show');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('show');
+    }
+
+    // إغلاق القائمة عند الضغط على رابط
+    const sidebarLinks = sidebar.querySelectorAll('a');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => closeSidebar());
+    });
+  </script>
+</body>
+</html>
+

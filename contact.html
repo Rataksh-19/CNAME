@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تواصل معنا | سوبر نت</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">سوبر نت</div>
+  </header>
+
+  <nav id="sidebar">
+    <a href="index.html">🏠 الرئيسية</a>
+    <a href="contact.html">📞 تواصل معنا</a>
+    <a href="privacy.html">🔒 سياسة الخصوصية</a>
+    <a href="cart.html" id="cartLink" style="display:none;">🛒 السلة</a>
+  </nav>
+
+  <div class="container">
+    <h2>تواصل معنا</h2>
+    <p>لأي استفسار يرجى التواصل عبر:</p>
+    <p>📞 واتساب: <a href="https://wa.me/966509460048" target="_blank" style="color:#00d9ff;">966509460048</a></p>
+    <p>📧 البريد الإلكتروني: <span style="color:#00d9ff;">supernet@email.com</span></p>
+  </div>
+
+  <footer>
+    &copy; 2025 سوبر نت. جميع الحقوق محفوظة.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.style.display === 'block') {
+        sidebar.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
